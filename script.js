@@ -6,6 +6,45 @@ function isLandingVisible() {
     return rect.top <= 80 && rect.bottom > 80;
 }
 
+// Helper: update menu icon based on active section
+function updateMenuIcon() {
+    const icon = document.getElementById('active-icon');
+    const sections = [
+        { id: 'landing', icon: 'fas fa-home' },
+        { id: 'about', icon: 'fas fa-info-circle' },
+        { id: 'team', icon: 'fas fa-users' },
+        { id: 'projects', icon: 'fas fa-code' },
+        { id: 'contact', icon: 'fas fa-envelope' }
+    ];
+    
+    let activeSection = 'landing';
+    const menuBarHeight = 72; // Height of the menu bar
+    
+    for (const section of sections) {
+        const element = document.getElementById(section.id);
+        if (element) {
+            const rect = element.getBoundingClientRect();
+            // Check if section is in viewport (considering menu bar height)
+            // A section is considered active if its top is near the top of the viewport
+            if (rect.top <= menuBarHeight + 50 && rect.bottom > menuBarHeight + 50) {
+                activeSection = section.id;
+                break;
+            }
+        }
+    }
+    
+    // Update icon
+    const activeSectionData = sections.find(s => s.id === activeSection);
+    if (activeSectionData && icon.className !== activeSectionData.icon) {
+        icon.className = activeSectionData.icon;
+    }
+}
+
+// Helper: update menu icon with delay for smooth scrolling
+function updateMenuIconDelayed() {
+    setTimeout(updateMenuIcon, 100);
+}
+
 let animationActive = true;
 let ball, paddles;
 
@@ -107,6 +146,16 @@ class Ball {
                     this.dy = -this.dy;
                 } else {
                     this.dx = -this.dx;
+                }
+                
+                // Change paddle color to orange for 3 seconds
+                if (!paddle.element.classList.contains('hit-orange')) {
+                    paddle.element.classList.add('hit-orange');
+                    paddle.element.style.backgroundColor = 'orange';
+                    setTimeout(() => {
+                        paddle.element.classList.remove('hit-orange');
+                        paddle.element.style.backgroundColor = '';
+                    }, 3000);
                 }
             }
         }
@@ -556,6 +605,23 @@ window.addEventListener('load', () => {
         renderProjectsGradient();
         renderContactGradient();
     });
+
+    // Handle scroll to update menu icon
+    window.addEventListener('scroll', updateMenuIcon);
+    
+    // Handle menu navigation clicks
+    const menuLinks = document.querySelectorAll('.menu-bar a');
+    menuLinks.forEach(link => {
+        link.addEventListener('click', () => {
+            // Update icon after a short delay to allow smooth scrolling
+            setTimeout(updateMenuIcon, 300);
+            setTimeout(updateMenuIcon, 600);
+            setTimeout(updateMenuIcon, 1000);
+        });
+    });
+    
+    // Initial icon update
+    updateMenuIcon();
 
     renderLogoPixel();
     renderAboutGradient();
