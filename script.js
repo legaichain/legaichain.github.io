@@ -121,16 +121,54 @@ class Ball {
     constructor() {
         this.ball = document.querySelector('.ball');
         this.x = window.innerWidth / 2;
-        this.y = window.innerHeight / 2;
-        this.dx = 5;
-        this.dy = 5;
-        this.radius = 15;
+        this.y = window.innerHeight * 0.25; // 25% od górnej krawędzi
+        this.updateSpeed();
+        this.updateRadius();
         this.updatePosition();
+    }
+
+    updateRadius() {
+        // Get ball size from CSS variable
+        const ballSize = getComputedStyle(document.documentElement).getPropertyValue('--ball-size');
+        this.radius = parseInt(ballSize) / 2;
+    }
+
+    updateSpeed() {
+        // Adjust speed based on screen size
+        const screenWidth = window.innerWidth;
+        if (screenWidth > 1200) {
+            this.dx = 5;
+            this.dy = 5;
+        } else if (screenWidth > 768) {
+            this.dx = 4;
+            this.dy = 4;
+        } else if (screenWidth > 480) {
+            this.dx = 3;
+            this.dy = 3;
+        } else if (screenWidth > 360) {
+            this.dx = 2;
+            this.dy = 2;
+        } else if (screenWidth > 280) {
+            this.dx = 1;
+            this.dy = 1;
+        } else if (screenWidth > 200) {
+            this.dx = 1;
+            this.dy = 1;
+        } else {
+            this.dx = 1;
+            this.dy = 1;
+        }
     }
 
     updatePosition() {
         this.ball.style.left = this.x + 'px';
         this.ball.style.top = this.y + 'px';
+    }
+
+    resetPosition() {
+        this.x = window.innerWidth / 2;
+        this.y = window.innerHeight * 0.25;
+        this.updatePosition();
     }
 
     update(paddles) {
@@ -205,8 +243,28 @@ class Ball {
 class Paddle {
     constructor(element) {
         this.element = element;
-        this.speed = 8;
+        this.updateSpeed();
         this.position = 0;
+    }
+
+    updateSpeed() {
+        // Adjust speed based on screen size
+        const screenWidth = window.innerWidth;
+        if (screenWidth > 1200) {
+            this.speed = 8;
+        } else if (screenWidth > 768) {
+            this.speed = 7;
+        } else if (screenWidth > 480) {
+            this.speed = 6;
+        } else if (screenWidth > 360) {
+            this.speed = 5;
+        } else if (screenWidth > 280) {
+            this.speed = 4;
+        } else if (screenWidth > 200) {
+            this.speed = 3;
+        } else {
+            this.speed = 2;
+        }
     }
 
     update(ball) {
@@ -389,8 +447,69 @@ function renderLogoPixel() {
   const logoPixelMap = getLogoPixelMap();
   const rows = logoPixelMap.length;
   const cols = logoPixelMap[0].length;
-  logo.style.gridTemplateColumns = `repeat(${cols}, 14px)`;
-  logo.style.gridTemplateRows = `repeat(${rows}, 14px)`;
+  
+  // Calculate dynamic square size based on screen width with padding consideration
+  const screenWidth = window.innerWidth;
+  const availableWidth = screenWidth * 0.9; // 90% of screen width (5% padding on each side)
+  
+  // Calculate optimal square size and gap
+  // We need to account for gaps between squares: total width = (cols * squareSize) + ((cols - 1) * gapSize)
+  // For small screens, we'll use smaller gaps proportionally
+  let squareSize, gapSize;
+  
+  // Start with maximum size and work down
+  const maxSquareSize = 14;
+  const maxGapSize = 2;
+  
+  // Calculate what size we could fit with maximum gap
+  const maxPossibleSize = Math.floor((availableWidth - (cols - 1) * maxGapSize) / cols);
+  
+  if (maxPossibleSize >= maxSquareSize) {
+    // We can use maximum size
+    squareSize = maxSquareSize;
+    gapSize = maxGapSize;
+  } else if (maxPossibleSize >= 8) {
+    // Use calculated size with proportional gap
+    squareSize = maxPossibleSize;
+    gapSize = Math.max(1, Math.floor(maxPossibleSize / 7)); // Proportional gap
+  } else if (maxPossibleSize >= 4) {
+    // For smaller sizes, use fixed smaller gap
+    squareSize = maxPossibleSize;
+    gapSize = 1;
+  } else {
+    // For very small sizes, use minimum size with minimal gap
+    squareSize = Math.max(2, maxPossibleSize);
+    gapSize = 0; // No gap for very small sizes to prevent overlap
+  }
+  
+  // Double-check that everything fits
+  const totalWidth = (cols * squareSize) + ((cols - 1) * gapSize);
+  if (totalWidth > availableWidth) {
+    // Recalculate with smaller square size
+    const adjustedSquareSize = Math.floor((availableWidth - (cols - 1) * gapSize) / cols);
+    squareSize = Math.max(2, adjustedSquareSize);
+  }
+  
+  // Final safety check - if squares are too small, remove gap entirely
+  if (squareSize <= 3 && gapSize > 0) {
+    gapSize = 0;
+    // Recalculate square size without gap
+    squareSize = Math.floor(availableWidth / cols);
+    squareSize = Math.max(2, squareSize);
+  }
+  
+  // Set grid properties
+  logo.style.gridTemplateColumns = `repeat(${cols}, ${squareSize}px)`;
+  logo.style.gridTemplateRows = `repeat(${rows}, ${squareSize}px)`;
+  logo.style.gap = `${gapSize}px`;
+  
+  // Ensure grid doesn't stretch or shrink
+  logo.style.gridAutoFlow = 'dense';
+  logo.style.alignItems = 'start';
+  logo.style.justifyItems = 'start';
+  
+  // Debug info (remove in production)
+  console.log(`Screen: ${screenWidth}px, Available: ${availableWidth}px, Square: ${squareSize}px, Gap: ${gapSize}px, Total: ${totalWidth}px`);
 
   // Find the x start positions for each letter
   const letters = ['L','E','G','A','L','C','H','A','i','N'];
@@ -417,6 +536,8 @@ function renderLogoPixel() {
       const color = logoPixelMap[y][x];
       const square = document.createElement('div');
       square.className = 'logo-pixel-square';
+      square.style.width = `${squareSize}px`;
+      square.style.height = `${squareSize}px`;
       if (color === 1) {
         // If in first A or second L, set random opacity
         if ((x >= aStart && x < aStart + aWidth) || (x >= l2Start && x < l2Start + l2Width)) {
@@ -496,13 +617,34 @@ function renderTeamGradient() {
   container.style.display = 'grid';
   container.style.gridTemplateColumns = `repeat(${columns}, ${squareSize}px)`;
   container.style.gridTemplateRows = `repeat(${rows}, ${squareSize}px)`;
+  // Black to gray diagonal gradient
+  function getGrayGradientColor(x, y, columns, rows) {
+    const topLeft = { r: 10, g: 10, b: 10 };
+    const topRight = { r: 80, g: 80, b: 80 };
+    const bottomLeft = { r: 40, g: 40, b: 40 };
+    const bottomRight = { r: 180, g: 180, b: 180 };
+    const tx = x / (columns - 1);
+    const ty = y / (rows - 1);
+    function lerp(a, b, t) { return a + (b - a) * t; }
+    function lerpColor(c1, c2, t) {
+      return {
+        r: lerp(c1.r, c2.r, t),
+        g: lerp(c1.g, c2.g, t),
+        b: lerp(c1.b, c2.b, t)
+      };
+    }
+    const top = lerpColor(topLeft, topRight, tx);
+    const bottom = lerpColor(bottomLeft, bottomRight, tx);
+    const final = lerpColor(top, bottom, ty);
+    return `rgb(${Math.round(final.r)}, ${Math.round(final.g)}, ${Math.round(final.b)})`;
+  }
   for (let i = 0; i < squaresNeeded; i++) {
     const x = i % columns;
     const y = Math.floor(i / columns);
     const square = document.createElement('div');
     square.style.width = `${squareSize}px`;
     square.style.height = `${squareSize}px`;
-    square.style.background = getGradientColor(x, y, columns, rows); // Home gradient
+    square.style.background = getGrayGradientColor(x, y, columns, rows);
     container.appendChild(square);
   }
 }
@@ -571,6 +713,17 @@ function renderContactGradient() {
   }
 }
 
+// Function to update game elements sizes
+function updateGameElements() {
+    if (ball) {
+        ball.updateRadius();
+        ball.updateSpeed();
+    }
+    if (paddles) {
+        paddles.forEach(paddle => paddle.updateSpeed());
+    }
+}
+
 // Initialize
 window.addEventListener('load', () => {
     createGrid();
@@ -600,10 +753,17 @@ window.addEventListener('load', () => {
     // Handle window resize
     window.addEventListener('resize', () => {
         createGrid();
+        renderLogoPixel();
         renderAboutGradient();
         renderTeamGradient();
         renderProjectsGradient();
         renderContactGradient();
+        updateGameElements();
+        
+        // Reset ball position to start position (25% from top)
+        if (ball) {
+            ball.resetPosition();
+        }
     });
 
     // Handle scroll to update menu icon
@@ -628,4 +788,74 @@ window.addEventListener('load', () => {
     renderTeamGradient();
     renderProjectsGradient();
     renderContactGradient();
+});
+
+// Team section hover functionality
+document.addEventListener('DOMContentLoaded', function() {
+    const teamRightContainer = document.querySelector('.team-right-container');
+    const teamLeftContainer = document.querySelector('.team-left-container');
+    const teamTextOverlay = document.querySelector('.team-text-overlay');
+    const teamTextOverlayRight = document.querySelector('.team-text-overlay-right');
+    const teamLeftImages = teamLeftContainer.querySelectorAll('img');
+    const teamRightImages = teamRightContainer.querySelectorAll('img');
+
+    if (teamRightContainer && teamLeftContainer && teamTextOverlay && teamTextOverlayRight) {
+        // Hover over right container - affects left container
+        teamRightContainer.addEventListener('mouseenter', function() {
+            // Change left container background to black
+            teamLeftContainer.style.backgroundColor = 'rgba(0, 0, 0, 0.95)';
+            
+            // Show text overlay
+            teamTextOverlay.style.opacity = '1';
+            teamTextOverlay.style.visibility = 'visible';
+            
+            // Hide left container images
+            teamLeftImages.forEach(img => {
+                img.style.opacity = '0';
+            });
+        });
+
+        teamRightContainer.addEventListener('mouseleave', function() {
+            // Restore left container background
+            teamLeftContainer.style.backgroundColor = 'rgba(20, 20, 20, 0.3)';
+            
+            // Hide text overlay
+            teamTextOverlay.style.opacity = '0';
+            teamTextOverlay.style.visibility = 'hidden';
+            
+            // Show left container images
+            teamLeftImages.forEach(img => {
+                img.style.opacity = '1';
+            });
+        });
+
+        // Hover over left container - affects right container
+        teamLeftContainer.addEventListener('mouseenter', function() {
+            // Change right container background to black
+            teamRightContainer.style.backgroundColor = 'rgba(0, 0, 0, 0.95)';
+            
+            // Show text overlay
+            teamTextOverlayRight.style.opacity = '1';
+            teamTextOverlayRight.style.visibility = 'visible';
+            
+            // Hide right container images
+            teamRightImages.forEach(img => {
+                img.style.opacity = '0';
+            });
+        });
+
+        teamLeftContainer.addEventListener('mouseleave', function() {
+            // Restore right container background
+            teamRightContainer.style.backgroundColor = 'rgba(20, 20, 20, 0.3)';
+            
+            // Hide text overlay
+            teamTextOverlayRight.style.opacity = '0';
+            teamTextOverlayRight.style.visibility = 'hidden';
+            
+            // Show right container images
+            teamRightImages.forEach(img => {
+                img.style.opacity = '1';
+            });
+        });
+    }
 }); 
