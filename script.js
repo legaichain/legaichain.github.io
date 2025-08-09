@@ -91,29 +91,8 @@ function getGradientColor(x, y, columns, rows) {
 
 // Create grid
 function createGrid() {
-    const container = document.querySelector('.grid-container');
-    const squareSize = 45;
-    
-    // Calculate number of squares needed with extra padding
-    const columns = Math.ceil(window.innerWidth / squareSize) + 2;
-    const rows = Math.ceil(window.innerHeight / squareSize) + 1;
-    const squaresNeeded = columns * rows;
-    
-    // Clear existing squares
-    container.innerHTML = '';
-    
-    // Create new squares
-    for (let i = 0; i < squaresNeeded; i++) {
-        const square = document.createElement('div');
-        square.className = 'grid-square';
-        const x = i % columns;
-        const y = Math.floor(i / columns);
-        square.style.backgroundColor = getGradientColor(x, y, columns, rows);
-        container.appendChild(square);
-    }
-
-    // Force grid to fill the entire width
-    container.style.width = `${columns * squareSize}px`;
+    // No longer creating gradient squares - using solid black background from CSS
+    return;
 }
 
 // Ball animation
@@ -564,153 +543,23 @@ function getLogoBlockRectsWithElements() {
 }
 
 function renderAboutGradient() {
-  const container = document.querySelector('.about-gradient');
-  if (!container) return;
-  container.innerHTML = '';
-  const squareSize = 45;
-  const columns = Math.ceil(window.innerWidth / squareSize) + 2;
-  const rows = Math.ceil(window.innerHeight / squareSize) + 1;
-  const squaresNeeded = columns * rows;
-  container.style.display = 'grid';
-  container.style.gridTemplateColumns = `repeat(${columns}, ${squareSize}px)`;
-  container.style.gridTemplateRows = `repeat(${rows}, ${squareSize}px)`;
-  // Black to gray diagonal gradient
-  function getGrayGradientColor(x, y, columns, rows) {
-    const topLeft = { r: 10, g: 10, b: 10 };
-    const topRight = { r: 80, g: 80, b: 80 };
-    const bottomLeft = { r: 40, g: 40, b: 40 };
-    const bottomRight = { r: 180, g: 180, b: 180 };
-    const tx = x / (columns - 1);
-    const ty = y / (rows - 1);
-    function lerp(a, b, t) { return a + (b - a) * t; }
-    function lerpColor(c1, c2, t) {
-      return {
-        r: lerp(c1.r, c2.r, t),
-        g: lerp(c1.g, c2.g, t),
-        b: lerp(c1.b, c2.b, t)
-      };
-    }
-    const top = lerpColor(topLeft, topRight, tx);
-    const bottom = lerpColor(bottomLeft, bottomRight, tx);
-    const final = lerpColor(top, bottom, ty);
-    return `rgb(${Math.round(final.r)}, ${Math.round(final.g)}, ${Math.round(final.b)})`;
-  }
-  for (let i = 0; i < squaresNeeded; i++) {
-    const x = i % columns;
-    const y = Math.floor(i / columns);
-    const square = document.createElement('div');
-    square.style.width = `${squareSize}px`;
-    square.style.height = `${squareSize}px`;
-    square.style.background = getGrayGradientColor(x, y, columns, rows);
-    container.appendChild(square);
-  }
+  // No longer rendering gradient squares - using solid black background from CSS
+  return;
 }
 
 function renderTeamGradient() {
-  const container = document.querySelector('.team-gradient');
-  if (!container) return;
-  container.innerHTML = '';
-  const squareSize = 45;
-  const columns = Math.ceil(window.innerWidth / squareSize) + 2;
-  const rows = Math.ceil(window.innerHeight / squareSize) + 1;
-  const squaresNeeded = columns * rows;
-  container.style.display = 'grid';
-  container.style.gridTemplateColumns = `repeat(${columns}, ${squareSize}px)`;
-  container.style.gridTemplateRows = `repeat(${rows}, ${squareSize}px)`;
-  // Black to gray diagonal gradient
-  function getGrayGradientColor(x, y, columns, rows) {
-    const topLeft = { r: 10, g: 10, b: 10 };
-    const topRight = { r: 80, g: 80, b: 80 };
-    const bottomLeft = { r: 40, g: 40, b: 40 };
-    const bottomRight = { r: 180, g: 180, b: 180 };
-    const tx = x / (columns - 1);
-    const ty = y / (rows - 1);
-    function lerp(a, b, t) { return a + (b - a) * t; }
-    function lerpColor(c1, c2, t) {
-      return {
-        r: lerp(c1.r, c2.r, t),
-        g: lerp(c1.g, c2.g, t),
-        b: lerp(c1.b, c2.b, t)
-      };
-    }
-    const top = lerpColor(topLeft, topRight, tx);
-    const bottom = lerpColor(bottomLeft, bottomRight, tx);
-    const final = lerpColor(top, bottom, ty);
-    return `rgb(${Math.round(final.r)}, ${Math.round(final.g)}, ${Math.round(final.b)})`;
-  }
-  for (let i = 0; i < squaresNeeded; i++) {
-    const x = i % columns;
-    const y = Math.floor(i / columns);
-    const square = document.createElement('div');
-    square.style.width = `${squareSize}px`;
-    square.style.height = `${squareSize}px`;
-    square.style.background = getGrayGradientColor(x, y, columns, rows);
-    container.appendChild(square);
-  }
+  // No longer rendering gradient squares - using solid black background from CSS
+  return;
 }
 
 function renderProjectsGradient() {
-  const container = document.querySelector('.projects-gradient');
-  if (!container) return;
-  container.innerHTML = '';
-  const squareSize = 45;
-  const columns = Math.ceil(window.innerWidth / squareSize) + 2;
-  const rows = Math.ceil(window.innerHeight / squareSize) + 1;
-  const squaresNeeded = columns * rows;
-  container.style.display = 'grid';
-  container.style.gridTemplateColumns = `repeat(${columns}, ${squareSize}px)`;
-  container.style.gridTemplateRows = `repeat(${rows}, ${squareSize}px)`;
-  function getGrayGradientColor(x, y, columns, rows) {
-    const topLeft = { r: 10, g: 10, b: 10 };
-    const topRight = { r: 80, g: 80, b: 80 };
-    const bottomLeft = { r: 40, g: 40, b: 40 };
-    const bottomRight = { r: 180, g: 180, b: 180 };
-    const tx = x / (columns - 1);
-    const ty = y / (rows - 1);
-    function lerp(a, b, t) { return a + (b - a) * t; }
-    function lerpColor(c1, c2, t) {
-      return {
-        r: lerp(c1.r, c2.r, t),
-        g: lerp(c1.g, c2.g, t),
-        b: lerp(c1.b, c2.b, t)
-      };
-    }
-    const top = lerpColor(topLeft, topRight, tx);
-    const bottom = lerpColor(bottomLeft, bottomRight, tx);
-    const final = lerpColor(top, bottom, ty);
-    return `rgb(${Math.round(final.r)}, ${Math.round(final.g)}, ${Math.round(final.b)})`;
-  }
-  for (let i = 0; i < squaresNeeded; i++) {
-    const x = i % columns;
-    const y = Math.floor(i / columns);
-    const square = document.createElement('div');
-    square.style.width = `${squareSize}px`;
-    square.style.height = `${squareSize}px`;
-    square.style.background = getGrayGradientColor(x, y, columns, rows);
-    container.appendChild(square);
-  }
+  // No longer rendering gradient squares - using solid black background from CSS
+  return;
 }
 
 function renderContactGradient() {
-  const container = document.querySelector('.contact-gradient');
-  if (!container) return;
-  container.innerHTML = '';
-  const squareSize = 45;
-  const columns = Math.ceil(window.innerWidth / squareSize) + 2;
-  const rows = Math.ceil(window.innerHeight / squareSize) + 1;
-  const squaresNeeded = columns * rows;
-  container.style.display = 'grid';
-  container.style.gridTemplateColumns = `repeat(${columns}, ${squareSize}px)`;
-  container.style.gridTemplateRows = `repeat(${rows}, ${squareSize}px)`;
-  for (let i = 0; i < squaresNeeded; i++) {
-    const x = i % columns;
-    const y = Math.floor(i / columns);
-    const square = document.createElement('div');
-    square.style.width = `${squareSize}px`;
-    square.style.height = `${squareSize}px`;
-    square.style.background = getGradientColor(x, y, columns, rows); // Home gradient
-    container.appendChild(square);
-  }
+  // No longer rendering gradient squares - using solid black background from CSS
+  return;
 }
 
 // Function to update game elements sizes
@@ -790,72 +639,5 @@ window.addEventListener('load', () => {
     renderContactGradient();
 });
 
-// Team section hover functionality
-document.addEventListener('DOMContentLoaded', function() {
-    const teamRightContainer = document.querySelector('.team-right-container');
-    const teamLeftContainer = document.querySelector('.team-left-container');
-    const teamTextOverlay = document.querySelector('.team-text-overlay');
-    const teamTextOverlayRight = document.querySelector('.team-text-overlay-right');
-    const teamLeftImages = teamLeftContainer.querySelectorAll('img');
-    const teamRightImages = teamRightContainer.querySelectorAll('img');
-
-    if (teamRightContainer && teamLeftContainer && teamTextOverlay && teamTextOverlayRight) {
-        // Hover over right container - affects left container
-        teamRightContainer.addEventListener('mouseenter', function() {
-            // Change left container background to black
-            teamLeftContainer.style.backgroundColor = 'rgba(0, 0, 0, 0.95)';
-            
-            // Show text overlay
-            teamTextOverlay.style.opacity = '1';
-            teamTextOverlay.style.visibility = 'visible';
-            
-            // Hide left container images
-            teamLeftImages.forEach(img => {
-                img.style.opacity = '0';
-            });
-        });
-
-        teamRightContainer.addEventListener('mouseleave', function() {
-            // Restore left container background
-            teamLeftContainer.style.backgroundColor = 'rgba(20, 20, 20, 0.3)';
-            
-            // Hide text overlay
-            teamTextOverlay.style.opacity = '0';
-            teamTextOverlay.style.visibility = 'hidden';
-            
-            // Show left container images
-            teamLeftImages.forEach(img => {
-                img.style.opacity = '1';
-            });
-        });
-
-        // Hover over left container - affects right container
-        teamLeftContainer.addEventListener('mouseenter', function() {
-            // Change right container background to black
-            teamRightContainer.style.backgroundColor = 'rgba(0, 0, 0, 0.95)';
-            
-            // Show text overlay
-            teamTextOverlayRight.style.opacity = '1';
-            teamTextOverlayRight.style.visibility = 'visible';
-            
-            // Hide right container images
-            teamRightImages.forEach(img => {
-                img.style.opacity = '0';
-            });
-        });
-
-        teamLeftContainer.addEventListener('mouseleave', function() {
-            // Restore right container background
-            teamRightContainer.style.backgroundColor = 'rgba(20, 20, 20, 0.3)';
-            
-            // Hide text overlay
-            teamTextOverlayRight.style.opacity = '0';
-            teamTextOverlayRight.style.visibility = 'hidden';
-            
-            // Show right container images
-            teamRightImages.forEach(img => {
-                img.style.opacity = '1';
-            });
-        });
-    }
-}); 
+// Team section - simple image hover effects only
+// No text overlays, just image transitions handled by CSS 
