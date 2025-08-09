@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html lang="pl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Legaicha.in</title>
+    <link rel="stylesheet" href="styles.css">
+    <link href="https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap" rel="stylesheet">
+</head>
+<body>
+    <!-- Fixed Navigation Bar -->
+    <nav class="navbar">
+        <div class="nav-container">
+            <div class="nav-logo">
+                <img src="2.svg" alt="Legaicha.in">
+            </div>
+            <ul class="nav-menu">
+                <li class="nav-item">
+                    <a href="#home" class="nav-link" data-translate="nav-home">HOME</a>
+                </li>
+                <li class="nav-item">
+                    <a href="#about" class="nav-link" data-translate="nav-about">ABOUT US</a>
+                </li>
+                <li class="nav-item">
+                    <a href="#team" class="nav-link" data-translate="nav-team">TEAM</a>
+                </li>
+                <li class="nav-item">
+                    <a href="#areas" class="nav-link" data-translate="nav-areas">AREAS</a>
+                </li>
+                <li class="nav-item">
+                    <a href="#contact" class="nav-link" data-translate="nav-contact">CONTACT</a>
+                </li>
+            </ul>
+            <div class="language-selector">
+                <button class="lang-btn active" data-lang="pl">🇵🇱</button>
+                <button class="lang-btn" data-lang="en">🇬🇧</button>
+                <button class="lang-btn" data-lang="ru">🇷🇺</button>
+            </div>
+            <div class="hamburger">
+                <span class="bar"></span>
+                <span class="bar"></span>
+                <span class="bar"></span>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Main Content -->
+    <main class="main-content">
+        <!-- HOME Section -->
+        <section id="home" class="section hero-section">
+            <div class="container">
+                <div class="hero-content">
+                    <img src="logo.svg" alt="Legaicha.in" class="hero-logo">
+                    <h1 class="hero-title" data-translate="hero-title">Witamy w Legaicha.in</h1>
+                    <p class="hero-subtitle" data-translate="hero-subtitle">Profesjonalne usługi prawne na najwyższym poziomie</p>
+                    <button class="cta-button" data-translate="hero-cta">Skontaktuj się z nami</button>
+                </div>
+            </div>
+        </section>
+
+        <!-- ABOUT US Section -->
+        <section id="about" class="section">
+            <div class="container">
+                <h2 class="section-title" data-translate="about-title">O nas</h2>
+                <div class="about-content">
+                    <p data-translate="about-text">Nasza firma świadczy kompleksowe usługi prawne z wieloletnim doświadczeniem w branży.</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- TEAM Section -->
+        <section id="team" class="section">
+            <div class="container">
+                <h2 class="section-title" data-translate="team-title">Nasz zespół</h2>
+                <div class="team-grid">
+                    <div class="team-member">
+                        <div class="member-photo"></div>
+                        <h3 class="member-name">Członek zespołu 1</h3>
+                        <p class="member-role">Pozycja</p>
+                    </div>
+                    <div class="team-member">
+                        <div class="member-photo"></div>
+                        <h3 class="member-name">Członek zespołu 2</h3>
+                        <p class="member-role">Pozycja</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- AREAS Section -->
+        <section id="areas" class="section">
+            <div class="container">
+                <h2 class="section-title" data-translate="areas-title">Obszary działalności</h2>
+                <div class="areas-grid">
+                    <div class="area-card">
+                        <h3 data-translate="area1-title">Prawo cywilne</h3>
+                        <p data-translate="area1-desc">Opis obszaru działalności</p>
+                    </div>
+                    <div class="area-card">
+                        <h3 data-translate="area2-title">Prawo gospodarcze</h3>
+                        <p data-translate="area2-desc">Opis obszaru działalności</p>
+                    </div>
+                    <div class="area-card">
+                        <h3 data-translate="area3-title">Prawo karne</h3>
+                        <p data-translate="area3-desc">Opis obszaru działalności</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- CONTACT Section -->
+        <section id="contact" class="section">
+            <div class="container">
+                <h2 class="section-title" data-translate="contact-title">Kontakt</h2>
+                <div class="contact-content">
+                    <div class="contact-info">
+                        <p><strong>Adres:</strong> ul. Przykładowa 123, 00-001 Warszawa</p>
+                        <p><strong>Telefon:</strong> +48 123 456 789</p>
+                        <p><strong>Email:</strong> kontakt@legaicha.in</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <script src="script.js"></script>
+</body>
+</html>

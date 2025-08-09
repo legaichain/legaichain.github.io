@@ -1,0 +1,677 @@
+/* Reset and base styles */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Press Start 2P', cursive;
+    line-height: 1.6;
+    color: #333;
+    overflow-x: hidden;
+    margin: 0;
+    padding: 0;
+    position: relative;
+}
+
+/* Fixed gradient background - completely static */
+html::before {
+    content: '';
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    width: 100%;
+    height: 100%;
+    z-index: -1000;
+    pointer-events: none;
+    
+    --y-0: 16%;
+    --c-0: hsla(18, 76%, 52%, 1);
+    --x-0: 13%;
+    --c-1: hsla(265, 73%, 45%, 1);
+    --x-1: 14%;
+    --y-1: 89%;
+    --y-2: 23%;
+    --x-2: 23%;
+    --c-2: hsla(18, 76%, 52%, 1);
+    --y-3: 23%;
+    --x-3: 23%;
+    --c-3: hsla(265, 73%, 45%, 1);
+    --y-4: 23%;
+    --x-4: 23%;
+    --c-4: hsla(265, 73%, 45%, 1);
+    
+    background-color: hsla(265, 73%, 45%, 1);
+    background-image: 
+        url("data:image/svg+xml,%3Csvg viewBox='0 0 728 728' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noiseFilter'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.65' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noiseFilter)'/%3E%3C/svg%3E"), 
+        radial-gradient(circle at var(--x-0) var(--y-0), var(--c-0) var(--s-start-0), transparent var(--s-end-0)), 
+        radial-gradient(circle at var(--x-1) var(--y-1), var(--c-1) var(--s-start-1), transparent var(--s-end-1)), 
+        radial-gradient(circle at var(--x-2) var(--y-2), var(--c-2) var(--s-start-2), transparent var(--s-end-2)), 
+        radial-gradient(circle at var(--x-3) var(--y-3), var(--c-3) var(--s-start-3), transparent var(--s-end-3)), 
+        radial-gradient(circle at var(--x-4) var(--y-4), var(--c-4) var(--s-start-4), transparent var(--s-end-4));
+    animation: hero-gradient-animation 10s linear infinite alternate-reverse;
+    background-blend-mode: overlay, overlay, normal, normal, normal, normal;
+    background-attachment: fixed;
+}
+
+/* Gradient Animation Properties */
+@property --s-start-0 {
+    syntax: '<percentage>';
+    inherits: false;
+    initial-value: 9%;
+}
+
+@property --s-end-0 {
+    syntax: '<percentage>';
+    inherits: false;
+    initial-value: 58.89119889119889%;
+}
+
+@property --y-0 {
+    syntax: '<percentage>';
+    inherits: false;
+    initial-value: 16%;
+}
+
+@property --c-0 {
+    syntax: '<color>';
+    inherits: false;
+    initial-value: hsla(18, 76%, 52%, 1);
+}
+
+@property --x-0 {
+    syntax: '<percentage>';
+    inherits: false;
+    initial-value: 13%;
+}
+
+@property --c-1 {
+    syntax: '<color>';
+    inherits: false;
+    initial-value: hsla(265, 73%, 45%, 1);
+}
+
+@property --s-start-1 {
+    syntax: '<percentage>';
+    inherits: false;
+    initial-value: 9%;
+}
+
+@property --s-end-1 {
+    syntax: '<percentage>';
+    inherits: false;
+    initial-value: 58.89119889119889%;
+}
+
+@property --x-1 {
+    syntax: '<percentage>';
+    inherits: false;
+    initial-value: 14%;
+}
+
+@property --y-1 {
+    syntax: '<percentage>';
+    inherits: false;
+    initial-value: 89%;
+}
+
+@property --y-2 {
+    syntax: '<percentage>';
+    inherits: false;
+    initial-value: 23%;
+}
+
+@property --x-2 {
+    syntax: '<percentage>';
+    inherits: false;
+    initial-value: 23%;
+}
+
+@property --s-start-2 {
+    syntax: '<percentage>';
+    inherits: false;
+    initial-value: 2%;
+}
+
+@property --s-end-2 {
+    syntax: '<percentage>';
+    inherits: false;
+    initial-value: 60%;
+}
+
+@property --c-2 {
+    syntax: '<color>';
+    inherits: false;
+    initial-value: hsla(18, 76%, 52%, 1);
+}
+
+@property --y-3 {
+    syntax: '<percentage>';
+    inherits: false;
+    initial-value: 23%;
+}
+
+@property --x-3 {
+    syntax: '<percentage>';
+    inherits: false;
+    initial-value: 23%;
+}
+
+@property --s-start-3 {
+    syntax: '<percentage>';
+    inherits: false;
+    initial-value: 2%;
+}
+
+@property --s-end-3 {
+    syntax: '<percentage>';
+    inherits: false;
+    initial-value: 60%;
+}
+
+@property --c-3 {
+    syntax: '<color>';
+    inherits: false;
+    initial-value: hsla(265, 73%, 45%, 1);
+}
+
+@property --y-4 {
+    syntax: '<percentage>';
+    inherits: false;
+    initial-value: 23%;
+}
+
+@property --x-4 {
+    syntax: '<percentage>';
+    inherits: false;
+    initial-value: 23%;
+}
+
+@property --s-start-4 {
+    syntax: '<percentage>';
+    inherits: false;
+    initial-value: 2%;
+}
+
+@property --s-end-4 {
+    syntax: '<percentage>';
+    inherits: false;
+    initial-value: 60%;
+}
+
+@property --c-4 {
+    syntax: '<color>';
+    inherits: false;
+    initial-value: hsla(265, 73%, 45%, 1);
+}
+
+/* Gradient Animation Keyframes */
+@keyframes hero-gradient-animation {
+    0% {
+        --c-1: hsla(265, 73%, 45%, 1);
+        --s-start-1: 9%;
+        --s-end-1: 58.89119889119889%;
+        --x-1: 14%;
+        --y-1: 89%;
+        --y-2: 23%;
+        --x-2: 23%;
+        --s-start-2: 2%;
+        --s-end-2: 60%;
+        --c-2: hsla(18, 76%, 52%, 1);
+        --y-3: 23%;
+        --x-3: 23%;
+        --s-start-3: 2%;
+        --s-end-3: 60%;
+        --c-3: hsla(265, 73%, 45%, 1);
+        --y-4: 23%;
+        --x-4: 23%;
+        --s-start-4: 2%;
+        --s-end-4: 60%;
+        --c-4: hsla(265, 73%, 45%, 1);
+    }
+
+    33% {
+        --c-1: hsla(18, 76%, 52%, 1);
+        --s-start-1: 4.5991935069083505%;
+        --s-end-1: 60%;
+        --x-1: 97%;
+        --y-1: 47%;
+        --y-2: 91%;
+        --x-2: 92%;
+        --s-start-2: 4%;
+        --s-end-2: 73%;
+        --c-2: hsla(18, 76%, 52%, 1);
+        --y-3: 91%;
+        --x-3: 92%;
+        --s-start-3: 4%;
+        --s-end-3: 73%;
+        --c-3: hsla(265, 0%, 0%, 1);
+        --y-4: 91%;
+        --x-4: 92%;
+        --s-start-4: 4%;
+        --s-end-4: 73%;
+        --c-4: hsla(265, 0%, 0%, 1);
+    }
+
+    66% {
+        --c-1: hsla(326, 62%, 40%, 1);
+        --s-start-1: 4.5991935069083505%;
+        --s-end-1: 60%;
+        --x-1: 97%;
+        --y-1: 47%;
+        --y-2: 91%;
+        --x-2: 92%;
+        --s-start-2: 4%;
+        --s-end-2: 73%;
+        --c-2: hsla(265, 73%, 45%, 1);
+        --y-3: 91%;
+        --x-3: 92%;
+        --s-start-3: 4%;
+        --s-end-3: 73%;
+        --c-3: hsla(18, 0%, 0%, 1);
+        --y-4: 91%;
+        --x-4: 92%;
+        --s-start-4: 4%;
+        --s-end-4: 73%;
+        --c-4: hsla(265, 0%, 0%, 1);
+    }
+
+    99% {
+        --y-3: 91%;
+        --x-3: 92%;
+        --s-start-3: 4%;
+        --s-end-3: 73%;
+        --c-3: hsla(18, 0%, 0%, 1);
+        --y-4: 91%;
+        --x-4: 92%;
+        --s-start-4: 4%;
+        --s-end-4: 73%;
+        --c-4: hsla(265, 0%, 0%, 1);
+    }
+}
+
+/* Hero section without background */
+.hero-section {
+    min-height: 100vh;
+    position: relative;
+    background: transparent;
+}
+
+/* Navigation Bar */
+.navbar {
+    position: fixed;
+    top: 0;
+    width: 100%;
+    background: rgba(0, 0, 0, 0.5);
+    backdrop-filter: blur(10px);
+    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+    z-index: 1000;
+    transition: all 0.3s ease;
+}
+
+.nav-container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 20px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    height: 70px;
+}
+
+.nav-logo {
+    display: flex;
+    align-items: center;
+}
+
+.nav-logo img {
+    height: 40px;
+    width: auto;
+}
+
+.nav-menu {
+    display: flex;
+    list-style: none;
+    gap: 2rem;
+    align-items: center;
+}
+
+.nav-link {
+    color: rgba(255, 255, 255, 0.9);
+    text-decoration: none;
+    font-weight: normal;
+    font-size: 0.6rem;
+    position: relative;
+    transition: color 0.3s ease;
+}
+
+.nav-link:hover {
+    color: #f2c249;
+}
+
+
+
+/* Language Selector */
+.language-selector {
+    display: flex;
+    gap: 0.5rem;
+    margin-left: 2rem;
+}
+
+.lang-btn {
+    padding: 0.5rem;
+    border: none;
+    background: none;
+    color: rgba(255, 255, 255, 0.8);
+    cursor: pointer;
+    font-size: 1.2rem;
+    transition: all 0.3s ease;
+    min-width: 50px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.lang-btn:hover {
+    opacity: 0.7;
+}
+
+/* Hamburger Menu */
+.hamburger {
+    display: none;
+    flex-direction: column;
+    cursor: pointer;
+    margin-left: 1rem;
+}
+
+    .bar {
+        width: 25px;
+        height: 3px;
+        background-color: rgba(255, 255, 255, 0.9);
+        margin: 3px 0;
+        transition: 0.3s;
+    }
+
+/* Main Content */
+.main-content {
+    padding-top: 70px;
+}
+
+.container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 20px;
+}
+
+.section {
+    padding: 80px 0;
+    position: relative;
+}
+
+.section:not(.hero-section) {
+    background: none;
+    margin: 0;
+}
+
+.section:nth-child(even):not(.hero-section) {
+    background: none;
+}
+
+.section-title {
+    font-size: 1.5rem;
+    font-weight: normal;
+    text-align: center;
+    margin-bottom: 3rem;
+    color: white;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.7);
+}
+
+/* Hero Section */
+.hero-content {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    height: calc(100vh - 70px);
+    color: white;
+}
+
+.hero-logo {
+    max-width: 2000px;
+    width: 100%;
+    height: auto;
+    margin-bottom: 0.5rem;
+    filter: drop-shadow(2px 2px 4px rgba(0, 0, 0, 0.3));
+}
+
+.hero-title {
+    font-size: 2rem;
+    font-weight: normal;
+    margin-bottom: 1rem;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
+    display: none;
+}
+
+.hero-subtitle {
+    font-size: 0.7rem;
+    margin-bottom: 2rem;
+    opacity: 0.9;
+    max-width: 600px;
+    line-height: 1.8;
+}
+
+.cta-button {
+    padding: 1rem 2rem;
+    background: rgba(255, 255, 255, 0.2);
+    border: 2px solid rgba(255, 255, 255, 0.3);
+    color: white;
+    font-size: 0.7rem;
+    font-family: 'Press Start 2P', cursive;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    backdrop-filter: blur(10px);
+}
+
+.cta-button:hover {
+    background: rgba(255, 255, 255, 0.3);
+    transform: translateY(-2px);
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+}
+
+/* About Section */
+.about-content {
+    max-width: 800px;
+    margin: 0 auto;
+    text-align: center;
+    font-size: 0.7rem;
+    line-height: 2;
+    color: white;
+    text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.8);
+}
+
+/* Team Section */
+.team-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 2rem;
+    margin-top: 3rem;
+}
+
+.team-member {
+    background: none;
+    padding: 2rem;
+    border-radius: 12px;
+    text-align: center;
+    transition: transform 0.3s ease;
+}
+
+.team-member:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.15);
+}
+
+.member-photo {
+    width: 120px;
+    height: 120px;
+    border-radius: 50%;
+    background: linear-gradient(135deg, #6366f1, #8b5cf6);
+    margin: 0 auto 1rem;
+}
+
+.member-name {
+    font-size: 0.8rem;
+    font-weight: normal;
+    margin-bottom: 0.5rem;
+    color: white;
+    text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.8);
+}
+
+.member-role {
+    color: rgba(255, 255, 255, 0.9);
+    font-size: 0.6rem;
+    text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.8);
+}
+
+/* Areas Section */
+.areas-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 2rem;
+    margin-top: 3rem;
+}
+
+.area-card {
+    background: none;
+    padding: 2rem;
+    border-radius: 12px;
+    transition: transform 0.3s ease;
+}
+
+.area-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.15);
+}
+
+.area-card h3 {
+    font-size: 0.8rem;
+    font-weight: normal;
+    margin-bottom: 1rem;
+    color: white;
+    text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.8);
+}
+
+.area-card p {
+    color: rgba(255, 255, 255, 0.9);
+    line-height: 2;
+    font-size: 0.6rem;
+    text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.8);
+}
+
+/* Contact Section */
+.contact-content {
+    max-width: 600px;
+    margin: 0 auto;
+    text-align: center;
+}
+
+.contact-info {
+    background: none;
+    padding: 2rem;
+    border-radius: 12px;
+}
+
+.contact-info p {
+    margin-bottom: 1rem;
+    font-size: 0.7rem;
+    color: white;
+    line-height: 1.8;
+    text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.8);
+}
+
+.contact-info strong {
+    color: white;
+    text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.8);
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    .nav-menu {
+        position: fixed;
+        left: -100%;
+        top: 70px;
+        flex-direction: column;
+        background-color: rgba(0, 0, 0, 0.95);
+        backdrop-filter: blur(10px);
+        width: 100%;
+        text-align: center;
+        transition: 0.3s;
+        padding: 2rem 0;
+        gap: 1rem;
+    }
+
+    .nav-menu.active {
+        left: 0;
+    }
+
+    .hamburger {
+        display: flex;
+    }
+
+    .hamburger.active .bar:nth-child(2) {
+        opacity: 0;
+    }
+
+    .hamburger.active .bar:nth-child(1) {
+        transform: translateY(8px) rotate(45deg);
+    }
+
+    .hamburger.active .bar:nth-child(3) {
+        transform: translateY(-8px) rotate(-45deg);
+    }
+
+    .language-selector {
+        margin-left: 0;
+        margin-top: 1rem;
+    }
+
+    .hero-title {
+        font-size: 1.5rem;
+    }
+
+    .section-title {
+        font-size: 1.2rem;
+    }
+
+    .team-grid,
+    .areas-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .container {
+        padding: 0 15px;
+    }
+
+    .section {
+        padding: 60px 0;
+    }
+}
+
+@media (max-width: 480px) {
+    .hero-title {
+        font-size: 1.2rem;
+    }
+
+    .hero-subtitle {
+        font-size: 0.6rem;
+    }
+
+    .cta-button {
+        padding: 0.8rem 1.5rem;
+        font-size: 0.6rem;
+    }
+}
