@@ -4,15 +4,19 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Legaicha.in</title>
+    <link rel="icon" type="image/svg+xml" href="2.svg">
+    <link rel="apple-touch-icon" href="2.svg">
     <link rel="stylesheet" href="styles.css">
-    <link href="https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Press+Start+2P&family=Manrope:wght@300;400;500;600;700&display=swap" rel="stylesheet">
 </head>
 <body>
     <!-- Fixed Navigation Bar -->
     <nav class="navbar">
         <div class="nav-container">
             <div class="nav-logo">
-                <img src="2.svg" alt="Legaicha.in">
+                <a href="#home" class="logo-link">
+                    <img src="2.svg" alt="Legaicha.in">
+                </a>
             </div>
             <ul class="nav-menu">
                 <li class="nav-item">
@@ -52,7 +56,7 @@
                 <div class="hero-content">
                     <img src="logo.svg" alt="Legaicha.in" class="hero-logo">
                     <h1 class="hero-title" data-translate="hero-title">Witamy w Legaicha.in</h1>
-                    <p class="hero-subtitle" data-translate="hero-subtitle">Profesjonalne usługi prawne na najwyższym poziomie</p>
+                    <p class="hero-subtitle" data-translate="hero-subtitle">We translate code into compliance.</p>
                     <button class="cta-button" data-translate="hero-cta">Skontaktuj się z nami</button>
                 </div>
             </div>
@@ -61,9 +65,26 @@
         <!-- ABOUT US Section -->
         <section id="about" class="section">
             <div class="container">
-                <h2 class="section-title" data-translate="about-title">O nas</h2>
-                <div class="about-content">
-                    <p data-translate="about-text">Nasza firma świadczy kompleksowe usługi prawne z wieloletnim doświadczeniem w branży.</p>
+                <div class="about-interactive">
+                    <div class="about-image-container">
+                        <img src="about.svg" alt="About" class="about-image">
+                    </div>
+                    <div class="about-text-container">
+                        <h2 class="about-heading" data-translate="about-title">O nas</h2>
+                        <div class="about-text-content" data-translate="about-full-text">
+                            <p>W Legaichain wierzymy, że prawo powinno być tak zwinne jak technologia, którą ma regulować. Dlatego od początku budujemy kancelarię, która rozumie kod, zna rynek i mówi językiem Foundera, CTO i Compliance Officera.</p>
+                            
+                            <p>Nie jesteśmy kancelarią, która jedynie opiniuje – pracujemy ramię w ramię z zespołami produktowymi, analitykami, inwestorami i specjalistami ds. cyberbezpieczeństwa. Wdrażamy zgodność tam, gdzie technologia zmienia zasady gry – od rozproszonych środowisk DevSecOps, przez platformy AI/ML, po ztokenizowane modele biznesowe. Działamy w oparciu o legal design, strukturę taskową i dokumentację, która rzeczywiście żyje w narzędziach takich jak Jira, Notion czy Figma.</p>
+                            
+                            <p>Nasze doświadczenie obejmuje zarówno innowacyjne start-upy, jak i międzynarodowe grupy kapitałowe, fundusze inwestycyjne, software house'y oraz spółki infrastrukturalne i technologiczne. Pomagamy zespołom we wdrażaniu zgodności z regulacjami takimi jak AI Act, RODO, DORA, NIS2, MiCA i AML – w sposób, który jest używalny, skalowalny i adekwatny do realiów działania organizacji.</p>
+                            
+                            <p>Rozumiemy wyzwania, z którymi mierzy się sektor technologiczny – ale też te, które stoją przed instytucjami, spółkami o strategicznym znaczeniu i zespołami złożonymi z wielu partnerów. Mamy doświadczenie w pracy na styku prawa, technologii i realnych decyzji operacyjnych.</p>
+                            
+                            <p>Nie komplikujemy. Nie teoretyzujemy.</p>
+                            
+                            <p>Projektujemy rozwiązania, które naprawdę da się wdrożyć.</p>
+                        </div>
+                    </div>
                 </div>
             </div>
         </section>
@@ -71,17 +92,13 @@
         <!-- TEAM Section -->
         <section id="team" class="section">
             <div class="container">
-                <h2 class="section-title" data-translate="team-title">Nasz zespół</h2>
-                <div class="team-grid">
-                    <div class="team-member">
-                        <div class="member-photo"></div>
-                        <h3 class="member-name">Członek zespołu 1</h3>
-                        <p class="member-role">Pozycja</p>
+                <h2 class="team-heading" data-translate="team-title">Nasz zespół</h2>
+                <div class="team-interactive">
+                    <div class="team-image-container">
+                        <img src="ola.svg" alt="Ola" class="team-image">
                     </div>
-                    <div class="team-member">
-                        <div class="member-photo"></div>
-                        <h3 class="member-name">Członek zespołu 2</h3>
-                        <p class="member-role">Pozycja</p>
+                    <div class="team-image-container">
+                        <img src="temp.svg" alt="Team Member 2" class="team-image">
                     </div>
                 </div>
             </div>
@@ -91,18 +108,39 @@
         <section id="areas" class="section">
             <div class="container">
                 <h2 class="section-title" data-translate="areas-title">Obszary działalności</h2>
-                <div class="areas-grid">
-                    <div class="area-card">
-                        <h3 data-translate="area1-title">Prawo cywilne</h3>
-                        <p data-translate="area1-desc">Opis obszaru działalności</p>
+                <div class="areas-icons-grid">
+                    <div class="areas-row">
+                        <div class="area-icon">
+                            <img src="AI-SPC.svg" alt="AI" class="area-icon-img">
+                        </div>
+                        <div class="area-icon">
+                            <img src="IP-SPC.svg" alt="IP" class="area-icon-img">
+                        </div>
+                        <div class="area-icon">
+                            <img src="ECOMMERCE-SPC.svg" alt="E-commerce" class="area-icon-img">
+                        </div>
                     </div>
-                    <div class="area-card">
-                        <h3 data-translate="area2-title">Prawo gospodarcze</h3>
-                        <p data-translate="area2-desc">Opis obszaru działalności</p>
+                    <div class="areas-row">
+                        <div class="area-icon">
+                            <img src="BLOCKCHAIN-SPC.svg" alt="Blockchain" class="area-icon-img">
+                        </div>
+                        <div class="area-icon">
+                            <img src="AI-SPC.svg" alt="AI" class="area-icon-img">
+                        </div>
+                        <div class="area-icon">
+                            <img src="IP-SPC.svg" alt="IP" class="area-icon-img">
+                        </div>
                     </div>
-                    <div class="area-card">
-                        <h3 data-translate="area3-title">Prawo karne</h3>
-                        <p data-translate="area3-desc">Opis obszaru działalności</p>
+                    <div class="areas-row">
+                        <div class="area-icon">
+                            <img src="ECOMMERCE-SPC.svg" alt="E-commerce" class="area-icon-img">
+                        </div>
+                        <div class="area-icon">
+                            <img src="BLOCKCHAIN-SPC.svg" alt="Blockchain" class="area-icon-img">
+                        </div>
+                        <div class="area-icon">
+                            <img src="AI-SPC.svg" alt="AI" class="area-icon-img">
+                        </div>
                     </div>
                 </div>
             </div>
@@ -117,6 +155,23 @@
                         <p><strong>Adres:</strong> ul. Przykładowa 123, 00-001 Warszawa</p>
                         <p><strong>Telefon:</strong> +48 123 456 789</p>
                         <p><strong>Email:</strong> kontakt@legaicha.in</p>
+                    </div>
+                    <div class="contact-form-container">
+                        <form class="contact-form" id="contactForm">
+                            <div class="form-group">
+                                <label for="name" data-translate="form-name">Imię i nazwisko</label>
+                                <input type="text" id="name" name="name" required>
+                            </div>
+                            <div class="form-group">
+                                <label for="email" data-translate="form-email">Email</label>
+                                <input type="email" id="email" name="email" required>
+                            </div>
+                            <div class="form-group">
+                                <label for="message" data-translate="form-message">Wiadomość</label>
+                                <textarea id="message" name="message" rows="6" required></textarea>
+                            </div>
+                            <button type="submit" class="form-submit-btn" data-translate="form-submit">Wyślij wiadomość</button>
+                        </form>
                     </div>
                 </div>
             </div>
