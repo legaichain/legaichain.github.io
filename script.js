@@ -106,6 +106,36 @@ document.querySelectorAll('.lang-btn').forEach(btn => {
     });
 });
 
+// Mobile language functionality
+document.addEventListener('click', (e) => {
+    // Check if click is on mobile menu flags
+    if (window.innerWidth <= 768 && e.target.closest('.nav-menu')) {
+        const navMenu = e.target.closest('.nav-menu');
+        const rect = navMenu.getBoundingClientRect();
+        const clickY = e.clientY - rect.top;
+        
+        // Check if click is in the flags area (after separator line)
+        if (clickY > rect.height * 0.8) { // Approximate position of flags
+            const flagArea = e.target.textContent;
+            let lang = 'pl'; // default
+            
+            if (flagArea.includes('🇬🇧')) lang = 'en';
+            else if (flagArea.includes('🇷🇺')) lang = 'ru';
+            
+            switchLanguage(lang);
+            
+            // Update active button in desktop
+            document.querySelectorAll('.lang-btn').forEach(b => b.classList.remove('active'));
+            document.querySelector(`.lang-btn[data-lang="${lang}"]`)?.classList.add('active');
+            
+            // Close mobile menu after language selection
+            const hamburger = document.querySelector('.hamburger');
+            navMenu.classList.remove('active');
+            hamburger.classList.remove('active');
+        }
+    }
+});
+
 function switchLanguage(lang) {
     currentLanguage = lang;
     document.documentElement.lang = lang;
@@ -123,6 +153,14 @@ function switchLanguage(lang) {
                 element.textContent = translations[lang][key];
             }
         }
+    });
+    
+    // Update active state for both desktop and mobile language buttons
+    document.querySelectorAll('.lang-btn').forEach(btn => {
+        btn.classList.toggle('active', btn.getAttribute('data-lang') === lang);
+    });
+    document.querySelectorAll('.lang-btn-mobile').forEach(btn => {
+        btn.classList.toggle('active', btn.getAttribute('data-lang') === lang);
     });
 }
 
