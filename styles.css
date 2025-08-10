@@ -13,6 +13,7 @@ body {
     margin: 0;
     padding: 0;
     position: relative;
+    zoom: 0.9;
 }
 
 /* Fixed gradient background - completely static */
@@ -999,8 +1000,8 @@ html::before {
 }
 
 .area-icon-img {
-    width: 160px;
-    height: 160px;
+    width: 200px;
+    height: 200px;
     transition: all 0.3s ease;
 }
 
@@ -1031,8 +1032,8 @@ html::before {
     }
     
     .area-icon-img {
-        width: 120px;
-        height: 120px;
+        width: 150px;
+        height: 150px;
     }
     
     .area-specialization {
@@ -1046,8 +1047,8 @@ html::before {
     }
     
     .area-icon-img {
-        width: 100px;
-        height: 100px;
+        width: 130px;
+        height: 130px;
     }
     
     .area-specialization {
