@@ -681,6 +681,43 @@ html::before {
         padding: 0.8rem 1.5rem;
         font-size: 0.6rem;
     }
+    
+    #about {
+        padding: 60px 0 30px 0;
+    }
+    
+    #about .container {
+        padding: 0 15px;
+    }
+    
+    .about-interactive {
+        gap: 1.5rem;
+    }
+    
+    .about-text-container {
+        padding: 1rem;
+        order: 1;
+    }
+    
+    .about-image-container {
+        order: 2;
+        display: flex;
+        justify-content: center;
+        align-items: flex-end;
+        width: 100%;
+    }
+    
+    .about-image {
+        margin: 0 auto;
+    }
+    
+    .about-heading {
+        font-size: 1.2rem;
+    }
+    
+    .about-text-content {
+        font-size: 0.8rem;
+    }
 }
 
 /* About Section Interactive Styles */
@@ -930,6 +967,13 @@ html::before {
 
 /* Responsive for about section */
 @media (max-width: 768px) {
+    #about {
+        height: auto;
+        min-height: auto;
+        margin-top: 0;
+        padding: 80px 0 40px 0;
+    }
+    
     #about .container {
         padding: 0 20px;
     }
@@ -938,16 +982,7 @@ html::before {
         flex-direction: column;
         text-align: center;
         gap: 2rem;
-    }
-    
-    .about-image-container {
-        flex: none;
-        padding-left: 0;
-    }
-    
-    .about-image {
-        width: 100%;
-        max-width: 100%;
+        min-height: auto;
     }
     
     .about-text-container {
@@ -955,6 +990,23 @@ html::before {
         transform: none;
         pointer-events: auto;
         padding: 1.5rem;
+        order: 1;
+    }
+    
+    .about-image-container {
+        flex: none;
+        padding-left: 0;
+        order: 2;
+        display: flex;
+        justify-content: center;
+        align-items: flex-end;
+        width: 100%;
+    }
+    
+    .about-image {
+        width: 100%;
+        max-width: 100%;
+        margin: 0 auto;
     }
     
     .about-heading {
