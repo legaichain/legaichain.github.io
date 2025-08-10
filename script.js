@@ -273,7 +273,7 @@ function initFloatingIcons() {
     floatingIcons = [];
     
     icons.forEach((icon, index) => {
-        const speed = (0.8 + (index * 0.2)) * 5; // 5 times faster, 8 icons with varied speeds
+        const speed = (0.8 + (index * 0.2)) * 1; // Normal speed, 8 icons with varied speeds
         floatingIcons.push(new FloatingIcon(icon, speed));
     });
 }
