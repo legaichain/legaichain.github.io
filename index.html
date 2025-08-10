@@ -8,6 +8,7 @@
     <link rel="apple-touch-icon" href="2.svg">
     <link rel="stylesheet" href="styles.css">
     <link href="https://fonts.googleapis.com/css2?family=Press+Start+2P&family=Manrope:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
 </head>
 <body>
     <!-- Animated Background Icons -->
@@ -136,7 +137,7 @@
         <section id="areas" class="section">
             <div class="areas-background">
                 <div class="container">
-                    <h2 class="section-title" data-translate="areas-title">Obszary działalności</h2>
+                    <h2 class="areas-heading" data-translate="areas-title">Obszary działalności</h2>
                     <div class="areas-icons-grid">
                         <div class="areas-row">
                             <div class="area-icon">
@@ -179,32 +180,79 @@
 
         <!-- CONTACT Section -->
         <section id="contact" class="section">
-            <div class="container">
-                <h2 class="section-title" data-translate="contact-title">Kontakt</h2>
-                <div class="contact-content">
-                    <div class="contact-info">
-                        <p><strong>Adres:</strong> ul. Przykładowa 123, 00-001 Warszawa</p>
-                        <p><strong>Telefon:</strong> +48 123 456 789</p>
-                        <p><strong>Email:</strong> kontakt@legaicha.in</p>
-                    </div>
-                    <div class="contact-form-container">
-                        <form class="contact-form" id="contactForm">
-                            <div class="form-group">
-                                <label for="name" data-translate="form-name">Imię i nazwisko</label>
-                                <input type="text" id="name" name="name" required>
+            <div class="contact-background">
+                <div class="container">
+                    <h2 class="contact-heading" data-translate="contact-title">Kontakt</h2>
+                    <div class="contact-content">
+                        <!-- Contact Info Box -->
+                        <div class="contact-info-box">
+                            <div class="address-bar">
+                                <i class="fas fa-map-marker-alt"></i>
+                                <span>Warszawa, 00-028<br>ul. Bracka 20 lok. 7A</span>
                             </div>
-                            <div class="form-group">
-                                <label for="email" data-translate="form-email">Email</label>
-                                <input type="email" id="email" name="email" required>
+                            <div class="social-links">
+                                <a href="https://www.linkedin.com/company/legaicha-in" target="_blank" class="social-link linkedin">
+                                    <i class="fab fa-linkedin"></i>
+                                    LinkedIn
+                                </a>
+                                <a href="https://t.me/thelegaichainers" target="_blank" class="social-link telegram">
+                                    <i class="fab fa-telegram"></i>
+                                    Telegram News
+                                </a>
+                                <a href="https://t.me/thelegaichainerschat" target="_blank" class="social-link telegram-chat">
+                                    <i class="fab fa-telegram"></i>
+                                    Telegram Chat
+                                </a>
+                                <a href="https://instagram.com/legaichain" target="_blank" class="social-link instagram">
+                                    <i class="fab fa-instagram"></i>
+                                    Instagram
+                                </a>
                             </div>
-                            <div class="form-group">
-                                <label for="message" data-translate="form-message">Wiadomość</label>
-                                <textarea id="message" name="message" rows="6" required></textarea>
+                            <div class="emails-section">
+                                <div class="email-item">
+                                    <i class="fas fa-envelope"></i>
+                                    <a href="mailto:hello@legaicha.in">hello@legaicha.in</a>
+                                </div>
+                                <div class="email-item">
+                                    <i class="fas fa-envelope"></i>
+                                    <a href="mailto:anna.kryn@legaicha.in">anna.kryn@legaicha.in</a>
+                                </div>
+                                <div class="email-item">
+                                    <i class="fas fa-envelope"></i>
+                                    <a href="mailto:aleksandra.magiera@legai.chain">aleksandra.magiera@legai.chain</a>
+                                </div>
                             </div>
-                            <button type="submit" class="form-submit-btn" data-translate="form-submit">Wyślij wiadomość</button>
-                        </form>
+                        </div>
+                        
+                        <!-- Contact Form Box -->
+                        <div class="contact-form-box">
+                            <form class="contact-form" id="contactForm" action="https://api.web3forms.com/submit" method="POST">
+                                <!-- Web3Forms Access Key -->
+                                <input type="hidden" name="access_key" value="8da585e6-3499-4efa-a7ec-0e1555d7bdb9">
+                                
+                                <!-- Honeypot Spam Protection -->
+                                <input type="checkbox" name="botcheck" class="hidden" style="display: none;">
+                                
+                                <div class="form-group">
+                                    <label for="name" data-translate="form-name">Imię i nazwisko</label>
+                                    <input type="text" id="name" name="name" required>
+                                </div>
+                                <div class="form-group">
+                                    <label for="email" data-translate="form-email">Email</label>
+                                    <input type="email" id="email" name="email" required>
+                                </div>
+                                <div class="form-group">
+                                    <label for="message" data-translate="form-message">Wiadomość</label>
+                                    <textarea id="message" name="message" rows="6" required></textarea>
+                                </div>
+                                <button type="submit" class="form-submit-btn" data-translate="form-submit">Wyślij wiadomość</button>
+                            </form>
+                        </div>
                     </div>
                 </div>
+            </div>
+            <div class="contact-footer">
+                <p>&copy; 2024 Legaicha.in. Wszystkie prawa zastrzeżone.</p>
             </div>
         </section>
     </main>
