@@ -38,7 +38,11 @@ const translations = {
         'form-name': 'Imię i nazwisko',
         'form-email': 'Email',
         'form-message': 'Wiadomość',
-        'form-submit': 'Wyślij wiadomość'
+        'form-submit': 'Wyślij wiadomość',
+        'ania-heading': 'ANIA',
+        'ania-text': 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.\n\nDuis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.\n\nSed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam, eaque ipsa quae ab illo inventore veritatis et quasi architecto beatae vitae dicta sunt explicabo.\n\nNemo enim ipsam voluptatem quia voluptas sit aspernatur aut odit aut fugit, sed quia consequuntur magni dolores eos qui ratione voluptatem sequi nesciunt.\n\nNeque porro quisquam est, qui dolorem ipsum quia dolor sit amet, consectetur, adipisci velit, sed quia non numquam eius modi tempora incidunt ut labore et dolore magnam aliquam quaerat voluptatem.\n\nTemporibus autem quibusdam et aut officiis debitis aut rerum necessitatibus saepe eveniet ut et voluptates repudiandae sint et molestiae non recusandae. Itaque earum rerum hic tenetur a sapiente delectus, ut aut reiciendis voluptatibus maiores alias consequatur aut perferendis doloribus asperiores repellat.\n\nNulla facilisi. Curabitur lacinia pulvinar nibh. Aliquam porttitor, nulla quis luctus finibus, risus nibh porta nisi, nec commodo arcu tortor id nunc. Proin quis neque lacinia, euismod dui a, aliquet nisi.',
+        'ola-heading': 'OLA',
+        'ola-text': 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.\n\nDuis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.\n\nSed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam, eaque ipsa quae ab illo inventore veritatis et quasi architecto beatae vitae dicta sunt explicabo.\n\nNemo enim ipsam voluptatem quia voluptas sit aspernatur aut odit aut fugit, sed quia consequuntur magni dolores eos qui ratione voluptatem sequi nesciunt.\n\nNeque porro quisquam est, qui dolorem ipsum quia dolor sit amet, consectetur, adipisci velit, sed quia non numquam eius modi tempora incidunt ut labore et dolore magnam aliquam quaerat voluptatem.\n\nTemporibus autem quibusdam et aut officiis debitis aut rerum necessitatibus saepe eveniet ut et voluptates repudiandae sint et molestiae non recusandae. Itaque earum rerum hic tenetur a sapiente delectus, ut aut reiciendis voluptatibus maiores alias consequatur aut perferendis doloribus asperiores repellat.\n\nNulla facilisi. Curabitur lacinia pulvinar nibh. Aliquam porttitor, nulla quis luctus finibus, risus nibh porta nisi, nec commodo arcu tortor id nunc. Proin quis neque lacinia, euismod dui a, aliquet nisi.'
     },
     en: {
         'nav-home': 'HOME',
@@ -63,7 +67,11 @@ const translations = {
         'form-name': 'Full name',
         'form-email': 'Email',
         'form-message': 'Message',
-        'form-submit': 'Send message'
+        'form-submit': 'Send message',
+        'ania-heading': 'ANIA',
+        'ania-text': 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.\n\nDuis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.\n\nSed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam, eaque ipsa quae ab illo inventore veritatis et quasi architecto beatae vitae dicta sunt explicabo.\n\nNemo enim ipsam voluptatem quia voluptas sit aspernatur aut odit aut fugit, sed quia consequuntur magni dolores eos qui ratione voluptatem sequi nesciunt.\n\nNeque porro quisquam est, qui dolorem ipsum quia dolor sit amet, consectetur, adipisci velit, sed quia non numquam eius modi tempora incidunt ut labore et dolore magnam aliquam quaerat voluptatem.\n\nTemporibus autem quibusdam et aut officiis debitis aut rerum necessitatibus saepe eveniet ut et voluptates repudiandae sint et molestiae non recusandae. Itaque earum rerum hic tenetur a sapiente delectus, ut aut reiciendis voluptatibus maiores alias consequatur aut perferendis doloribus asperiores repellat.\n\nNulla facilisi. Curabitur lacinia pulvinar nibh. Aliquam porttitor, nulla quis luctus finibus, risus nibh porta nisi, nec commodo arcu tortor id nunc. Proin quis neque lacinia, euismod dui a, aliquet nisi.',
+        'ola-heading': 'OLA',
+        'ola-text': 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.\n\nDuis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.\n\nSed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam, eaque ipsa quae ab illo inventore veritatis et quasi architecto beatae vitae dicta sunt explicabo.\n\nNemo enim ipsam voluptatem quia voluptas sit aspernatur aut odit aut fugit, sed quia consequuntur magni dolores eos qui ratione voluptatem sequi nesciunt.\n\nNeque porro quisquam est, qui dolorem ipsum quia dolor sit amet, consectetur, adipisci velit, sed quia non numquam eius modi tempora incidunt ut labore et dolore magnam aliquam quaerat voluptatem.\n\nTemporibus autem quibusdam et aut officiis debitis aut rerum necessitatibus saepe eveniet ut et voluptates repudiandae sint et molestiae non recusandae. Itaque earum rerum hic tenetur a sapiente delectus, ut aut reiciendis voluptatibus maiores alias consequatur aut perferendis doloribus asperiores repellat.\n\nNulla facilisi. Curabitur lacinia pulvinar nibh. Aliquam porttitor, nulla quis luctus finibus, risus nibh porta nisi, nec commodo arcu tortor id nunc. Proin quis neque lacinia, euismod dui a, aliquet nisi.'
     },
     ru: {
         'nav-home': 'ГЛАВНАЯ',
@@ -88,7 +96,11 @@ const translations = {
         'form-name': 'Имя и фамилия',
         'form-email': 'Email',
         'form-message': 'Сообщение',
-        'form-submit': 'Отправить сообщение'
+        'form-submit': 'Отправить сообщение',
+        'ania-heading': 'АНЯ',
+        'ania-text': 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.\n\nDuis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.\n\nSed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam, eaque ipsa quae ab illo inventore veritatis et quasi architecto beatae vitae dicta sunt explicabo.\n\nNemo enim ipsam voluptatem quia voluptas sit aspernatur aut odit aut fugit, sed quia consequuntur magni dolores eos qui ratione voluptatem sequi nesciunt.\n\nNeque porro quisquam est, qui dolorem ipsum quia dolor sit amet, consectetur, adipisci velit, sed quia non numquam eius modi tempora incidunt ut labore et dolore magnam aliquam quaerat voluptatem.\n\nTemporibus autem quibusdam et aut officiis debitis aut rerum necessitatibus saepe eveniet ut et voluptates repudiandae sint et molestiae non recusandae. Itaque earum rerum hic tenetur a sapiente delectus, ut aut reiciendis voluptatibus maiores alias consequatur aut perferendis doloribus asperiores repellat.\n\nNulla facilisi. Curabitur lacinia pulvinar nibh. Aliquam porttitor, nulla quis luctus finibus, risus nibh porta nisi, nec commodo arcu tortor id nunc. Proin quis neque lacinia, euismod dui a, aliquet nisi.',
+        'ola-heading': 'ОЛЯ',
+        'ola-text': 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.\n\nDuis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.\n\nSed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam, eaque ipsa quae ab illo inventore veritatis et quasi architecto beatae vitae dicta sunt explicabo.\n\nNemo enim ipsam voluptatem quia voluptas sit aspernatur aut odit aut fugit, sed quia consequuntur magni dolores eos qui ratione voluptatem sequi nesciunt.\n\nNeque porro quisquam est, qui dolorem ipsum quia dolor sit amet, consectetur, adipisci velit, sed quia non numquam eius modi tempora incidunt ut labore et dolore magnam aliquam quaerat voluptatem.\n\nTemporibus autem quibusdam et aut officiis debitis aut rerum necessitatibus saepe eveniet ut et voluptates repudiandae sint et molestiae non recusandae. Itaque earum rerum hic tenetur a sapiente delectus, ut aut reiciendis voluptatibus maiores alias consequatur aut perferendis doloribus asperiores repellat.\n\nNulla facilisi. Curabitur lacinia pulvinar nibh. Aliquam porttitor, nulla quis luctus finibus, risus nibh porta nisi, nec commodo arcu tortor id nunc. Proin quis neque lacinia, euismod dui a, aliquet nisi.'
     }
 };
 
@@ -144,8 +156,8 @@ function switchLanguage(lang) {
     document.querySelectorAll('[data-translate]').forEach(element => {
         const key = element.getAttribute('data-translate');
         if (translations[lang] && translations[lang][key]) {
-            // Special handling for about-full-text with paragraphs
-            if (key === 'about-full-text') {
+            // Special handling for about-full-text, ania-text, and ola-text with paragraphs
+            if (key === 'about-full-text' || key === 'ania-text' || key === 'ola-text') {
                 const text = translations[lang][key];
                 const paragraphs = text.split('\n\n');
                 element.innerHTML = paragraphs.map(p => `<p>${p}</p>`).join('');
@@ -209,6 +221,28 @@ function updateAboutTextAnimation() {
     }
 }
 
+function updateSectionTitleAnimations() {
+    const sections = ['about', 'team', 'areas', 'contact'];
+    
+    sections.forEach(sectionId => {
+        const section = document.getElementById(sectionId);
+        if (!section) return;
+        
+        const heading = section.querySelector('.about-heading, .team-heading, .areas-heading, .contact-heading');
+        if (!heading) return;
+        
+        const sectionTop = section.offsetTop;
+        const sectionBottom = sectionTop + section.offsetHeight;
+        const scrollPosition = window.scrollY + window.innerHeight * 0.6;
+        
+        if (scrollPosition >= sectionTop && scrollPosition <= sectionBottom) {
+            heading.classList.add('visible');
+        } else {
+            heading.classList.remove('visible');
+        }
+    });
+}
+
 // Navbar background opacity on scroll
 window.addEventListener('scroll', () => {
     const navbar = document.querySelector('.navbar');
@@ -220,6 +254,7 @@ window.addEventListener('scroll', () => {
     
     // Update about text animation
     updateAboutTextAnimation();
+    updateSectionTitleAnimations(); // Update section title animations on scroll
 });
 
 // Background floating icons animation
@@ -295,6 +330,15 @@ document.addEventListener('DOMContentLoaded', () => {
     
     // Initialize about text animation
     updateAboutTextAnimation();
+    
+    // Initialize section title animations
+    updateSectionTitleAnimations();
+    
+    // Show first section title immediately
+    const firstHeading = document.querySelector('.about-heading');
+    if (firstHeading) {
+        firstHeading.classList.add('visible');
+    }
     
     // Initialize and start floating icons animation
     initFloatingIcons();
