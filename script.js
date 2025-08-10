@@ -222,6 +222,72 @@ window.addEventListener('scroll', () => {
     updateAboutTextAnimation();
 });
 
+// Background floating icons animation
+class FloatingIcon {
+    constructor(element, speed = 1) {
+        this.element = element;
+        this.speed = speed;
+        this.isLarge = element.classList.contains('large-icon');
+        this.size = this.isLarge ? 120 : 60;
+        
+        this.x = Math.random() * (window.innerWidth - this.size);
+        this.y = Math.random() * (window.innerHeight - this.size);
+        this.dx = (Math.random() - 0.5) * 1.5 * this.speed;
+        this.dy = (Math.random() - 0.5) * 1.5 * this.speed;
+        this.rotation = 0;
+        this.rotationSpeed = (Math.random() - 0.5) * 4; // Random rotation speed
+        
+        // Set initial position and rotation
+        this.element.style.transform = `translate(${this.x}px, ${this.y}px) rotate(${this.rotation}deg)`;
+    }
+    
+    update() {
+        // Update position
+        this.x += this.dx;
+        this.y += this.dy;
+        
+        // Update rotation
+        this.rotation += this.rotationSpeed;
+        
+        // Bounce off edges exactly at screen boundaries
+        if (this.x <= 0 || this.x >= window.innerWidth - this.size) {
+            this.dx = -this.dx;
+            this.x = Math.max(0, Math.min(window.innerWidth - this.size, this.x));
+        }
+        
+        if (this.y <= 0 || this.y >= window.innerHeight - this.size) {
+            this.dy = -this.dy;
+            this.y = Math.max(0, Math.min(window.innerHeight - this.size, this.y));
+        }
+        
+        // Apply position and rotation
+        this.element.style.transform = `translate(${this.x}px, ${this.y}px) rotate(${this.rotation}deg)`;
+    }
+}
+
+// Initialize floating icons
+let floatingIcons = [];
+
+function initFloatingIcons() {
+    const icons = document.querySelectorAll('.floating-icon');
+    floatingIcons = [];
+    
+    icons.forEach((icon, index) => {
+        const speed = (0.8 + (index * 0.2)) * 5; // 5 times faster, 8 icons with varied speeds
+        floatingIcons.push(new FloatingIcon(icon, speed));
+    });
+}
+
+function animateFloatingIcons() {
+    floatingIcons.forEach(icon => icon.update());
+    requestAnimationFrame(animateFloatingIcons);
+}
+
+// Handle window resize
+window.addEventListener('resize', () => {
+    initFloatingIcons();
+});
+
 // Initialize page
 document.addEventListener('DOMContentLoaded', () => {
     // Set initial language
@@ -229,4 +295,8 @@ document.addEventListener('DOMContentLoaded', () => {
     
     // Initialize about text animation
     updateAboutTextAnimation();
+    
+    // Initialize and start floating icons animation
+    initFloatingIcons();
+    animateFloatingIcons();
 });
