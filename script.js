@@ -360,6 +360,39 @@ window.addEventListener('resize', () => {
     initFloatingIcons();
 });
 
+// Cookie Consent Functionality
+function initCookieConsent() {
+    const cookieConsent = document.getElementById('cookieConsent');
+    const acceptBtn = document.getElementById('acceptCookies');
+    const rejectBtn = document.getElementById('rejectCookies');
+    
+    // Check if user has already made a choice
+    const cookieChoice = localStorage.getItem('cookieConsent');
+    
+    if (cookieChoice === null) {
+        // Show cookie banner after a short delay
+        setTimeout(() => {
+            cookieConsent.classList.add('show');
+        }, 1000);
+    }
+    
+    // Handle accept button
+    acceptBtn.addEventListener('click', () => {
+        localStorage.setItem('cookieConsent', 'accepted');
+        cookieConsent.classList.remove('show');
+        // Here you can add code to enable analytics or other cookies
+        console.log('Cookies accepted');
+    });
+    
+    // Handle reject button
+    rejectBtn.addEventListener('click', () => {
+        localStorage.setItem('cookieConsent', 'rejected');
+        cookieConsent.classList.remove('show');
+        // Here you can add code to disable analytics or other cookies
+        console.log('Cookies rejected');
+    });
+}
+
 // Initialize page
 document.addEventListener('DOMContentLoaded', () => {
     // Set initial language
@@ -380,4 +413,7 @@ document.addEventListener('DOMContentLoaded', () => {
     // Initialize and start floating icons animation
     initFloatingIcons();
     animateFloatingIcons();
+    
+    // Initialize cookie consent
+    initCookieConsent();
 });
