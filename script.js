@@ -8,10 +8,47 @@ hamburger.addEventListener('click', () => {
 });
 
 // Close mobile menu when clicking on a link
-document.querySelectorAll('.nav-link').forEach(n => n.addEventListener('click', () => {
+document.querySelectorAll('.nav-link').forEach(n => n.addEventListener('click', (e) => {
     hamburger.classList.remove('active');
     navMenu.classList.remove('active');
+    
+    // Handle navigation to sections
+    const href = n.getAttribute('href');
+    if (href.startsWith('#')) {
+        e.preventDefault();
+        const targetId = href.substring(1);
+        const targetSection = document.getElementById(targetId);
+        
+        if (targetSection) {
+            // Use scrollIntoView with scroll-margin-top for proper navbar offset
+            targetSection.scrollIntoView({
+                behavior: 'smooth',
+                block: 'start'
+            });
+        }
+    }
 }));
+
+// Handle logo navigation
+document.querySelector('.logo-link').addEventListener('click', (e) => {
+    e.preventDefault();
+    const homeSection = document.getElementById('home');
+    if (homeSection) {
+        homeSection.scrollIntoView({
+            behavior: 'smooth'
+        });
+    }
+});
+
+// Handle CTA button navigation
+document.querySelector('.cta-button').addEventListener('click', () => {
+    const contactSection = document.getElementById('contact');
+    if (contactSection) {
+        contactSection.scrollIntoView({
+            behavior: 'smooth'
+        });
+    }
+});
 
 // Language switching functionality
 const translations = {

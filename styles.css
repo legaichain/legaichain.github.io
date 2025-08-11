@@ -5,6 +5,10 @@
     box-sizing: border-box;
 }
 
+html {
+    scroll-behavior: smooth;
+}
+
 body {
     font-family: 'Manrope', sans-serif;
     line-height: 1.6;
@@ -13,7 +17,6 @@ body {
     margin: 0;
     padding: 0;
     position: relative;
-    zoom: 0.9;
 }
 
 /* Fixed gradient background - completely static */
@@ -300,6 +303,7 @@ html::before {
     position: relative;
     background: transparent;
     padding-bottom: 0;
+    scroll-margin-top: 70px; /* Ensure proper scrolling with fixed navbar */
 }
 
 /* Navigation Bar */
@@ -750,11 +754,12 @@ html::before {
     padding: 0;
     background: linear-gradient(to bottom, rgba(0, 0, 0, 0), rgba(0, 0, 0, 0.5));
     border-bottom: 20px solid #af5fff;
-    height: calc(100vh - 70px);
-    margin-top: 70px;
+    height: 100vh;
+    margin-top: 0;
     box-sizing: border-box;
     display: flex;
     align-items: flex-end;
+    scroll-margin-top: 70px; /* Ensure proper scrolling with fixed navbar */
 }
 
 #about .container {
@@ -851,6 +856,7 @@ html::before {
     box-sizing: border-box;
     display: flex;
     align-items: flex-end;
+    scroll-margin-top: 70px; /* Ensure proper scrolling with fixed navbar */
 }
 
 #team .container {
@@ -949,6 +955,7 @@ html::before {
     display: flex;
     align-items: center;
     justify-content: center;
+    scroll-margin-top: 70px; /* Ensure proper scrolling with fixed navbar */
 }
 
 /* Override section padding for areas section */
@@ -1121,6 +1128,7 @@ html::before {
     position: relative;
     display: flex;
     flex-direction: column;
+    scroll-margin-top: 70px; /* Ensure proper scrolling with fixed navbar */
 }
 
 .contact-background {
