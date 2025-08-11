@@ -393,6 +393,89 @@ function initCookieConsent() {
     });
 }
 
+// Language dropdown functionality
+function initLanguageDropdown() {
+    const dropdownBtn = document.getElementById('languageDropdown');
+    const dropdownContent = document.getElementById('languageDropdownContent');
+    const currentFlag = document.querySelector('.current-flag');
+    
+    if (!dropdownBtn || !dropdownContent) {
+        console.log('Language dropdown elements not found');
+        return;
+    }
+    
+    console.log('Initializing language dropdown');
+    
+    // Toggle dropdown
+    dropdownBtn.addEventListener('click', function(e) {
+        e.preventDefault();
+        e.stopPropagation();
+        
+        // Toggle active class
+        this.closest('.language-dropdown').classList.toggle('active');
+        
+        // Debug info
+        const isActive = this.closest('.language-dropdown').classList.contains('active');
+        console.log('Dropdown clicked, active state:', isActive);
+        
+        // Force dropdown to be visible for testing
+        if (isActive) {
+            dropdownContent.style.display = 'block';
+            dropdownContent.style.opacity = '1';
+            dropdownContent.style.visibility = 'visible';
+        } else {
+            dropdownContent.style.display = 'none';
+            dropdownContent.style.opacity = '0';
+            dropdownContent.style.visibility = 'hidden';
+        }
+    });
+    
+    // Handle language selection
+    dropdownContent.addEventListener('click', function(e) {
+        if (e.target.closest('.language-option')) {
+            e.preventDefault();
+            e.stopPropagation();
+            
+            const option = e.target.closest('.language-option');
+            const lang = option.dataset.lang;
+            const flag = option.dataset.flag;
+            
+            console.log('Language selected:', lang, flag);
+            
+            // Update current flag
+            if (currentFlag) {
+                currentFlag.textContent = flag;
+            }
+            
+            // Switch language if function exists
+            if (typeof switchLanguage === 'function') {
+                switchLanguage(lang);
+            }
+            
+            // Close dropdown
+            dropdownBtn.closest('.language-dropdown').classList.remove('active');
+            dropdownContent.style.display = 'none';
+            dropdownContent.style.opacity = '0';
+            dropdownContent.style.visibility = 'hidden';
+        }
+    });
+    
+    // Close dropdown when clicking outside
+    document.addEventListener('click', function(e) {
+        if (!e.target.closest('.language-dropdown')) {
+            document.querySelectorAll('.language-dropdown').forEach(function(dropdown) {
+                dropdown.classList.remove('active');
+                const content = dropdown.querySelector('.language-dropdown-content');
+                if (content) {
+                    content.style.display = 'none';
+                    content.style.opacity = '0';
+                    content.style.visibility = 'hidden';
+                }
+            });
+        }
+    });
+}
+
 // Initialize page
 document.addEventListener('DOMContentLoaded', () => {
     // Set initial language
@@ -416,4 +499,7 @@ document.addEventListener('DOMContentLoaded', () => {
     
     // Initialize cookie consent
     initCookieConsent();
+
+    // Initialize language dropdown
+    initLanguageDropdown();
 });

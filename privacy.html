@@ -6,6 +6,7 @@
     <title>Polityka Prywatności - Legaichain</title>
     <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@300;400;500;600;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
     <style>
         .privacy-container {
             max-width: 800px;
@@ -69,7 +70,29 @@
 <body>
     <!-- Back Button Header -->
     <div class="back-header">
-        <a href="index.html" class="back-button">← Powrót do strony głównej</a>
+        <a href="index.html" class="back-button" title="Powrót do strony głównej">
+            <i class="fas fa-home"></i>
+        </a>
+        <div class="language-dropdown">
+            <button class="language-dropdown-btn" id="languageDropdown">
+                <span class="current-flag">🇵🇱</span>
+                <i class="fas fa-chevron-down"></i>
+            </button>
+            <div class="language-dropdown-content" id="languageDropdownContent">
+                <a href="#" class="language-option" data-lang="pl" data-flag="🇵🇱">
+                    <span class="flag">🇵🇱</span>
+                    <span class="lang-name">Polski</span>
+                </a>
+                <a href="#" class="language-option" data-lang="en" data-flag="🇬🇧">
+                    <span class="flag">🇬🇧</span>
+                    <span class="lang-name">English</span>
+                </a>
+                <a href="#" class="language-option" data-lang="ru" data-flag="🇷🇺">
+                    <span class="flag">🇷🇺</span>
+                    <span class="lang-name">Русский</span>
+                </a>
+            </div>
+        </div>
     </div>
     
     <div class="privacy-container">
@@ -273,5 +296,10 @@
             <p>W każdej chwili możesz zweryfikować stan swoich aktualnych ustawień prywatności w przeglądarce, korzystając z narzędzia dostępnego pod linkiem <a href="https://optout.aboutads.info/?c=2&lang=EN" style="color: #f2c249;" target="_blank">https://optout.aboutads.info/?c=2&lang=EN</a></p>
         </div>
     </div>
+
+    <!-- Footer -->
+    <footer class="contact-footer">
+        <p>&copy; 2024 Legaicha.in. Wszystkie prawa zastrzeżone. | <a href="privacy.html" style="color: #f2c249; text-decoration: none;">Polityka Prywatności</a></p>
+    </footer>
 </body>
 </html> 

@@ -13,19 +13,41 @@
 <body>
     <!-- Back Button Header -->
     <div class="back-header">
-        <a href="index.html" class="back-button">← Powrót do strony głównej</a>
+        <a href="index.html" class="back-button" title="Powrót do strony głównej">
+            <i class="fas fa-home"></i>
+        </a>
+        <div class="language-dropdown">
+            <button class="language-dropdown-btn" id="languageDropdown">
+                <span class="current-flag">🇵🇱</span>
+                <i class="fas fa-chevron-down"></i>
+            </button>
+            <div class="language-dropdown-content" id="languageDropdownContent">
+                <a href="#" class="language-option" data-lang="pl" data-flag="🇵🇱">
+                    <span class="flag">🇵🇱</span>
+                    <span class="lang-name">Polski</span>
+                </a>
+                <a href="#" class="language-option" data-lang="en" data-flag="🇬🇧">
+                    <span class="flag">🇬🇧</span>
+                    <span class="lang-name">English</span>
+                </a>
+                <a href="#" class="language-option" data-lang="ru" data-flag="🇷🇺">
+                    <span class="flag">🇷🇺</span>
+                    <span class="lang-name">Русский</span>
+                </a>
+            </div>
+        </div>
     </div>
 
     <!-- Main Content -->
     <main class="main-content">
         <section class="section">
             <div class="container">
-                <h2 class="about-heading" data-translate="ola-heading">OLA</h2>
-                <div class="about-interactive">
-                    <div class="about-image-container">
+                <div class="about-interactive ola-layout">
+                    <div class="about-image-container ola-image-fixed">
                         <img src="ola.svg" alt="Ola" class="about-image">
+                        <img src="AMbar.svg" alt="AMbar" class="about-image">
                     </div>
-                    <div class="about-text-container" style="opacity: 1; transform: translateX(0); pointer-events: auto;">
+                    <div class="about-text-container ola-text-scrollable" style="opacity: 1; transform: translateX(0); pointer-events: auto;">
                         <div class="about-text-content" data-translate="ola-text">
                             <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
                             
