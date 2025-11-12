@@ -23,6 +23,11 @@ body {
     box-sizing: border-box;
 }
 
+:root {
+    --brand-purple: #8b5cf6;
+    --brand-purple-hover: #a78bfa;
+}
+
 /* Fixed gradient background - completely static */
 html::before {
     content: '';
@@ -1483,7 +1488,7 @@ html::before {
 
 .address-bar i {
     font-size: 1.2rem;
-    color: #af5fff;
+    color: var(--brand-purple);
     margin-top: 0.2rem;
 }
 
@@ -1517,7 +1522,7 @@ html::before {
 
 .social-link i {
     font-size: 1.2rem;
-    color: #af5fff;
+    color: var(--brand-purple);
 }
 
 .social-link.linkedin:hover {
@@ -1553,7 +1558,7 @@ html::before {
 
 .email-item i {
     font-size: 1.2rem;
-    color: #af5fff;
+    color: var(--brand-purple);
 }
 
 .email-item a {
@@ -1617,7 +1622,7 @@ html::before {
 
 .form-submit-btn {
     padding: 1rem 2rem;
-    background: #af5fff;
+    background: var(--brand-purple);
     border: none;
     border-radius: 8px;
     color: #fff;
@@ -1632,7 +1637,7 @@ html::before {
 }
 
 .form-submit-btn:hover {
-    background: #c794ff;
+    background: var(--brand-purple-hover);
     transform: translateY(-2px);
 }
 
