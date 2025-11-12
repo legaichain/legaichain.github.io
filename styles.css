@@ -1483,7 +1483,7 @@ html::before {
 
 .address-bar i {
     font-size: 1.2rem;
-    color: #f2c249;
+    color: #af5fff;
     margin-top: 0.2rem;
 }
 
@@ -1517,7 +1517,7 @@ html::before {
 
 .social-link i {
     font-size: 1.2rem;
-    color: #f2c249;
+    color: #af5fff;
 }
 
 .social-link.linkedin:hover {
@@ -1553,7 +1553,7 @@ html::before {
 
 .email-item i {
     font-size: 1.2rem;
-    color: #f2c249;
+    color: #af5fff;
 }
 
 .email-item a {
@@ -1617,10 +1617,10 @@ html::before {
 
 .form-submit-btn {
     padding: 1rem 2rem;
-    background: #f2c249;
+    background: #af5fff;
     border: none;
     border-radius: 8px;
-    color: #000;
+    color: #fff;
     font-size: 1rem;
     font-weight: 600;
     font-family: 'Manrope', sans-serif;
@@ -1632,7 +1632,7 @@ html::before {
 }
 
 .form-submit-btn:hover {
-    background: #e6b742;
+    background: #c794ff;
     transform: translateY(-2px);
 }
 
