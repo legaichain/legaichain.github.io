@@ -775,55 +775,72 @@ html::before {
         padding: 0.8rem 1.5rem;
         font-size: 0.6rem;
     }
-    
+
     #about {
         padding: 60px 0 0 0;
         width: 100%;
-        overflow-x: hidden;
-        display: block;
-        align-items: stretch;
+        height: 100vh;
+        overflow: hidden;
+        display: flex;
     }
-    
+
     #about .container {
-        padding: 0 15px;
+        padding: 0 15px 15px;
         margin: 0 auto;
         width: 100%;
         max-width: 100%;
         box-sizing: border-box;
-        display: block;
+        display: flex;
+        flex-direction: column;
         align-items: stretch;
+        justify-content: flex-start;
+        height: 100%;
+        max-height: 100vh;
+        overflow: hidden;
+        overflow-y: auto;
     }
-    
+
     .about-interactive {
-        gap: 1.5rem;
+        gap: 1rem;
         width: 100%;
         padding: 0;
         box-sizing: border-box;
-        align-items: stretch;
+        align-items: center;
+        justify-content: space-between;
+        display: flex;
+        flex-direction: column;
+        flex: 1 1 auto;
+        min-height: 0;
     }
-    
+
     .about-text-container {
         padding: 1rem;
         order: 2;
         width: 100%;
         box-sizing: border-box;
-        margin-bottom: 1.5rem;
+        margin-bottom: 0;
+        flex: 1 1 auto;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
     }
-    
+
     .about-image-container {
         order: 3;
         display: flex;
         justify-content: center;
-        align-items: center;
+        align-items: flex-end;
         width: 100%;
         box-sizing: border-box;
-        margin-top: 1rem;
+        margin-top: 0;
+        flex: 0 0 auto;
+        height: 35vh;
     }
-    
+
     .about-image {
         margin: 0 auto;
-        width: 90%;
-        max-width: 90%;
+        width: 75%;
+        max-width: 75%;
     }
     
     .about-heading {
@@ -906,39 +923,47 @@ html::before {
     margin-top: 0;
     box-sizing: border-box;
     display: flex;
-    align-items: center;
     scroll-margin-top: 70px; /* Ensure proper scrolling with fixed navbar */
 }
 
 #about .container {
     max-width: none;
-    padding: 0 40px;
+    padding: 0 40px 20px;
     width: 100%;
     display: flex;
-    align-items: center;
+    flex-direction: column;
+    justify-content: flex-end;
+    height: 100%;
+    max-height: 100vh;
+    overflow: hidden;
+    overflow-y: auto;
 }
 
 .about-interactive {
     display: flex;
-    align-items: center;
+    align-items: stretch;
+    justify-content: space-between;
     gap: 4rem;
-    min-height: 30vh;
     width: 100%;
     max-width: none;
     padding: 0;
+    flex: 1 1 auto;
+    min-height: 0;
 }
 
 .about-image-container {
     flex: 0 0 45%;
     display: flex;
     justify-content: flex-start;
-    align-items: center;
-    padding-left: 1rem;
+    align-items: flex-end;
+    align-self: stretch;
+    padding-left: 0;
+    height: 100%;
 }
 
 .about-image {
-    width: 120%;
-    max-width: 120%;
+    width: 100%;
+    max-width: 100%;
     height: auto;
     cursor: pointer;
     transition: transform 0.3s ease, filter 0.3s ease;
@@ -948,13 +973,17 @@ html::before {
 
 
 .about-text-container {
-    flex: 1;
+    flex: 1 1 55%;
     opacity: 0;
     transform: translateX(100%);
     transition: all 0.7s ease;
     pointer-events: none;
     padding: 2rem;
     max-width: none;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-self: stretch;
 }
 
 .about-text-container.visible {
@@ -1291,18 +1320,16 @@ html::before {
 /* Responsive for about section */
 @media (max-width: 768px) {
     #about {
-        height: auto;
-        min-height: auto;
+        height: 100vh;
         margin-top: 0;
         padding: 80px 0 0 0;
         width: 100%;
-        overflow-x: hidden;
-        display: block;
-        align-items: stretch;
+        overflow: hidden;
+        display: flex;
     }
-    
+
     #about .container {
-        padding: 0 20px;
+        padding: 0 20px 20px;
         margin: 0 auto;
         width: 100%;
         max-width: 100%;
@@ -1310,20 +1337,27 @@ html::before {
         display: flex;
         flex-direction: column;
         align-items: stretch;
+        justify-content: flex-start;
+        height: 100%;
+        max-height: 100vh;
+        overflow: hidden;
+        overflow-y: auto;
     }
-    
+
     .about-interactive {
         flex-direction: column;
         text-align: center;
-        gap: 2rem;
-        min-height: auto;
+        gap: 1.5rem;
         width: 100%;
         padding: 0;
         box-sizing: border-box;
-        align-items: stretch;
+        align-items: center;
+        justify-content: space-between;
         display: flex;
+        flex: 1 1 auto;
+        min-height: 0;
     }
-    
+
     .about-text-container {
         opacity: 1;
         transform: none;
@@ -1332,25 +1366,27 @@ html::before {
         order: 2;
         width: 100%;
         box-sizing: border-box;
-        margin-bottom: 2rem;
-        flex: 1;
+        margin-bottom: 0;
+        flex: 1 1 auto;
+        align-self: stretch;
     }
-    
+
     .about-image-container {
-        flex: none;
+        flex: 0 0 auto;
         padding-left: 0;
         order: 3;
         display: flex;
         justify-content: center;
-        align-items: center;
+        align-items: flex-end;
         width: 100%;
         box-sizing: border-box;
-        margin-top: 1rem;
+        margin-top: 0;
+        height: 35vh;
     }
-    
+
     .about-image {
-        width: 80%;
-        max-width: 80%;
+        width: 70%;
+        max-width: 70%;
         margin: 0 auto;
     }
     
@@ -2239,55 +2275,72 @@ html::before {
         padding: 0.8rem 1.5rem;
         font-size: 0.6rem;
     }
-    
+
     #about {
         padding: 60px 0 0 0;
         width: 100%;
-        overflow-x: hidden;
-        display: block;
-        align-items: stretch;
+        height: 100vh;
+        overflow: hidden;
+        display: flex;
     }
-    
+
     #about .container {
-        padding: 0 15px;
+        padding: 0 15px 15px;
         margin: 0 auto;
         width: 100%;
         max-width: 100%;
         box-sizing: border-box;
-        display: block;
+        display: flex;
+        flex-direction: column;
         align-items: stretch;
+        justify-content: flex-start;
+        height: 100%;
+        max-height: 100vh;
+        overflow: hidden;
+        overflow-y: auto;
     }
-    
+
     .about-interactive {
-        gap: 1.5rem;
+        gap: 1rem;
         width: 100%;
         padding: 0;
         box-sizing: border-box;
-        align-items: stretch;
+        align-items: center;
+        justify-content: space-between;
+        display: flex;
+        flex-direction: column;
+        flex: 1 1 auto;
+        min-height: 0;
     }
-    
+
     .about-text-container {
         padding: 1rem;
         order: 2;
         width: 100%;
         box-sizing: border-box;
-        margin-bottom: 1.5rem;
+        margin-bottom: 0;
+        flex: 1 1 auto;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
     }
-    
+
     .about-image-container {
         order: 3;
         display: flex;
         justify-content: center;
-        align-items: center;
+        align-items: flex-end;
         width: 100%;
         box-sizing: border-box;
-        margin-top: 1rem;
+        margin-top: 0;
+        flex: 0 0 auto;
+        height: 35vh;
     }
     
     .about-image {
         margin: 0 auto;
-        width: 90%;
-        max-width: 90%;
+        width: 75%;
+        max-width: 75%;
     }
     
     .about-heading {
