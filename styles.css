@@ -901,7 +901,7 @@ html::before {
     margin-top: 0;
     box-sizing: border-box;
     display: flex;
-    align-items: flex-end;
+    align-items: center;
     scroll-margin-top: 70px; /* Ensure proper scrolling with fixed navbar */
 }
 
@@ -910,12 +910,12 @@ html::before {
     padding: 0 40px;
     width: 100%;
     display: flex;
-    align-items: flex-end;
+    align-items: center;
 }
 
 .about-interactive {
     display: flex;
-    align-items: flex-end;
+    align-items: center;
     gap: 4rem;
     min-height: 30vh;
     width: 100%;
@@ -927,7 +927,7 @@ html::before {
     flex: 0 0 45%;
     display: flex;
     justify-content: flex-start;
-    align-items: flex-end;
+    align-items: center;
     padding-left: 1rem;
 }
 
@@ -948,7 +948,7 @@ html::before {
     transform: translateX(100%);
     transition: all 0.7s ease;
     pointer-events: none;
-    padding: 4rem 2rem 2rem 2rem;
+    padding: 2rem;
     max-width: none;
 }
 
